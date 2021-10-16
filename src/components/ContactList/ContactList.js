@@ -6,7 +6,7 @@ function ContactList({ list, deleteContact }) {
   return (
     <ul className={s.list}>
       {list.map(({ id, name, number }) => {
-        const tel = `tel:${number}`.replaceAll("-", "");
+        const tel = `tel:` + number.replace(/^(\+)|\D/g, "$1");
         return (
           <li className={s.item} key={id}>
             <p>
